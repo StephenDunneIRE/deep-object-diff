@@ -64,7 +64,7 @@ describe('.diff', () => {
       });
 
       test('returns subset of right hand side value when a key value has been deleted', () => {
-        expect(diff({ a: { b: 1 }, c: 2, d: { e: 100 } }, { a: { b: 1 }, c: 2, d: {} })).toEqual({ d: { e: undefined } });
+        expect(diff({ a: { b: 1 }, c: 2, d: { e: 100 } }, { a: { b: 1 }, c: 2, d: {} })).toEqual({ d: { e: 'REMOVED' } });
       });
 
       test('returns subset of right hand side value when a key value has been added', () => {
@@ -72,7 +72,7 @@ describe('.diff', () => {
       });
 
       test('returns keys as undefined when deleted from right hand side', () => {
-        expect(diff({ a: 1, b: { c: 2 }}, { a: 1 })).toEqual({ b: undefined });
+        expect(diff({ a: 1, b: { c: 2 }}, { a: 1 })).toEqual({ b: 'REMOVED' });
       });
     });
 
@@ -86,7 +86,7 @@ describe('.diff', () => {
       });
 
       test('returns subset of right hand side array as object of indices to value when right hand side array has deletions', () => {
-        expect(diff([1, 2, 3], [1, 3])).toEqual({ 1: 3, 2: undefined });
+        expect(diff([1, 2, 3], [1, 3])).toEqual({ 1: 3, 2: 'REMOVED' });
       });
 
       test('returns subset of right hand side array as object of indices to value when right hand side array has additions', () => {
@@ -108,8 +108,8 @@ describe('.diff', () => {
       });
 
       test('returns undefined when date deleted', () => {
-        expect(diff({ date: lhs }, {})).toEqual({ date: undefined });
-        expect(diff([lhs], [])).toEqual({ 0: undefined });
+        expect(diff({ date: lhs }, {})).toEqual({ date: 'REMOVED' });
+        expect(diff([lhs], [])).toEqual({ 0: 'REMOVED' });
       });
 
       test('returns right hand side when date is added', () => {
@@ -161,7 +161,7 @@ describe('.diff', () => {
         lhs.c = 2;
         const rhs = Object.create(null);
         rhs.a = { b: 1 };
-        expect(diff(lhs, rhs)).toEqual({ c: undefined });
+        expect(diff(lhs, rhs)).toEqual({ c: 'REMOVED' });
       });
 
       test('returns subset of right hand side value when a key value has been added', () => {
