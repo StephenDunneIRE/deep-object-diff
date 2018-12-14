@@ -1,7 +1,7 @@
 {
-  "name": "deep-object-diff",
-  "version": "1.1.0",
-  "description": "Deep diffs two objects, including nested structures of arrays and objects, and return the difference.",
+  "name": "deep-object-diff-mod",
+  "version": "0.0.1",
+  "description": "A mod of Matt Phillips' deep-object-diff package: Deep diffs two objects, including nested structures of arrays and objects, and return the difference.",
   "main": "dist/index.js",
   "types": "./index.d.ts",
   "files": [
@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StephenDunneIRE/deep-object-diff.git"
+    "url": "git+https://github.com/StephenDunneIRE/deep-object-diff-mod.git"
   },
   "keywords": [
     "diff",
@@ -55,7 +55,7 @@
     "difference"
   ],
   "bugs": {
-    "url": "https://github.com/StephenDunneIRE/deep-object-diff/issues"
+    "url": "https://github.com/StephenDunneIRE/deep-object-diff-mod/issues"
   },
-  "homepage": "https://github.com/StephenDunneIRE/deep-object-diff#readme"
+  "homepage": "https://github.com/StephenDunneIRE/deep-object-diff-mod#readme"
 }

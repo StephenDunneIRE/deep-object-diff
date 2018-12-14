@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>deep-object-diff</h1>
+  <h1>deep-object-diff-mod</h1>
 
   ❄️
 
@@ -8,20 +8,20 @@
 
 <hr />
 
-[![Build Status](https://img.shields.io/travis/mattphillips/deep-object-diff/master.svg?style=flat-square)](https://travis-ci.org/mattphillips/deep-object-diff/master)
-[![Code Coverage](https://img.shields.io/coveralls/mattphillips/deep-object-diff.svg?style=flat-square)](https://coveralls.io/github/mattphillips/deep-object-diff?branch=master)
-[![version](https://img.shields.io/npm/v/deep-object-diff.svg?style=flat-square)](https://www.npmjs.com/package/deep-object-diff)
-[![downloads](https://img.shields.io/npm/dm/deep-object-diff.svg?style=flat-square)](http://npm-stat.com/charts.html?package=deep-object-diff&from=2016-11-23)
-[![MIT License](https://img.shields.io/npm/l/deep-object-diff.svg?style=flat-square)](https://github.com/mattphillips/deep-object-diff/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/StephenDunneIRE/deep-object-diff-mod/master.svg?style=flat-square)](https://travis-ci.org/StephenDunneIRE/deep-object-diff-mod/master)
+[![Code Coverage](https://img.shields.io/coveralls/StephenDunneIRE/deep-object-diff-mod.svg?style=flat-square)](https://coveralls.io/github/StephenDunneIRE/deep-object-diff-mod?branch=master)
+[![version](https://img.shields.io/npm/v/deep-object-diff-mod.svg?style=flat-square)](https://www.npmjs.com/package/deep-object-diff-mod)
+[![downloads](https://img.shields.io/npm/dm/deep-object-diff-mod.svg?style=flat-square)](http://npm-stat.com/charts.html?package=deep-object-diff-mod&from=2016-11-23)
+[![MIT License](https://img.shields.io/npm/l/deep-object-diff-mod.svg?style=flat-square)](https://github.com/StephenDunneIRE/deep-object-diff-mod/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A small library that can deep diff two JavaScript Objects, including nested structures of arrays and objects.
 This library is a slight mod of Matt Phillips' deep-object-diff package, the only difference being that it will return a 'REMOVED' string instead of undefined in place where objects have been removed from an updated object's array of objects.
 
 ## Installation
-`yarn add deep-object-diff`
+`yarn add deep-object-diff-mod`
 
-`npm i --save deep-object-diff`
+`npm i --save deep-object-diff-mod`
 
 ## Functions available:
  - [`diff(originalObj, updatedObj)`](#diff)
@@ -43,20 +43,20 @@ This library is a slight mod of Matt Phillips' deep-object-diff package, the onl
 
 ES6 / Babel:
 ``` js
-import { diff, addedDiff, deletedDiff, updatedDiff, detailedDiff } from 'deep-object-diff';
+import { diff, addedDiff, deletedDiff, updatedDiff, detailedDiff } from 'deep-object-diff-mod';
 ```
 
 ES5:
 ``` js
-const { diff, addedDiff, deletedDiff, detailedDiff, updatedDiff } = require("deep-object-diff");
+const { diff, addedDiff, deletedDiff, detailedDiff, updatedDiff } = require("deep-object-diff-mod");
 
 // OR
 
-const diff = require("deep-object-diff").diff;
-const addedDiff = require("deep-object-diff").addedDiff;
-const deletedDiff = require("deep-object-diff").deletedDiff;
-const detailedDiff = require("deep-object-diff").detailedDiff;
-const updatedDiff = require("deep-object-diff").updatedDiff;
+const diff = require("deep-object-diff-mod").diff;
+const addedDiff = require("deep-object-diff-mod").addedDiff;
+const deletedDiff = require("deep-object-diff-mod").deletedDiff;
+const detailedDiff = require("deep-object-diff-mod").detailedDiff;
+const updatedDiff = require("deep-object-diff-mod").updatedDiff;
 ```
 
 ## Usage:
