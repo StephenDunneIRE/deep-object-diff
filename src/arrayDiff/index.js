@@ -9,7 +9,8 @@ const diff = (lhs, rhs) => {
   const r = properObject(rhs);
 
   const deletedValues = Object.keys(l).reduce((acc, key) => {
-    return r.hasOwnProperty(key) ? acc : { ...acc, [key]: undefined };
+    //Returning 'REMOVED' string instead of undefined so that Mongo registers the key-value.
+    return r.hasOwnProperty(key) ? acc : { ...acc, [key]: 'REMOVED' };
   }, {});
 
   if (isDate(l) || isDate(r)) {
@@ -19,7 +20,8 @@ const diff = (lhs, rhs) => {
 
   if (Array.isArray(r) && Array.isArray(l)) {
     const deletedValues = l.reduce((acc, item, index) => {
-      return r.hasOwnProperty(index) ? acc.concat(item) : acc.concat(undefined);
+      //Returning 'REMOVED' string instead of undefined so that Mongo registers the key-value.
+      return r.hasOwnProperty(index) ? acc.concat(item) : acc.concat('REMOVED');
     }, []);
 
     return r.reduce((acc, rightItem, index) => {

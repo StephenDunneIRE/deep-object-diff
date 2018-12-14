@@ -16,7 +16,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A small library that can deep diff two JavaScript Objects, including nested structures of arrays and objects.
-This library is a slight mod of Matt Phillips' deep-object-diff package, the only difference being that it will return a 'REMOVED' string instead of undefined in place where objects have been removed from an updated object's array of objects.
+This library is a slight mod of Matt Phillips' deep-object-diff package, the only difference being that it will return a 'REMOVED' string instead of undefined in place where objects have been removed from an updated object's array of objects. The use-case for this is for Mongo Database Logging - undefined key-values do not save, meaning logs don't show key-values that have been removed from an object. This solution remedies that issue. 
 
 ## Installation
 `yarn add deep-object-diff-mod`
@@ -93,13 +93,13 @@ console.log(diff(lhs, rhs)); // =>
   foo: {
     bar: {
       a: {
-        '1': undefined
+        '1': 'REMOVED'
       },
       c: {
         '2': 'z'
       },
       d: 'Hello, world!',
-      e: undefined
+      e: 'REMOVED'
     }
   },
   buzz: 'fizz'
@@ -182,9 +182,9 @@ console.log(deletedDiff(lhs, rhs));
   foo: {
     bar: {
       a: {
-        '1': undefined
+        '1': 'REMOVED'
       },
-      e: undefined
+      e: 'REMOVED'
     }
   }
 }
@@ -270,9 +270,9 @@ console.log(detailedDiff(lhs, rhs));
     foo: {
       bar: {
         a: {
-          '1': undefined
+          '1': 'REMOVED'
         },
-        e: undefined
+        e: 'REMOVED'
       }
     }
   },

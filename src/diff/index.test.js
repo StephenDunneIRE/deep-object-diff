@@ -71,7 +71,7 @@ describe('.diff', () => {
         expect(diff({ a: 1 }, { a: 1, b: 2 })).toEqual({ b: 2 });
       });
 
-      test('returns keys as undefined when deleted from right hand side', () => {
+      test('returns keys as \'REMOVED\' when deleted from right hand side', () => {
         expect(diff({ a: 1, b: { c: 2 }}, { a: 1 })).toEqual({ b: 'REMOVED' });
       });
     });
@@ -107,7 +107,7 @@ describe('.diff', () => {
         expect(diff([lhs], [rhs])).toEqual({ 0: rhs });
       });
 
-      test('returns undefined when date deleted', () => {
+      test('returns \'REMOVED\' when date deleted', () => {
         expect(diff({ date: lhs }, {})).toEqual({ date: 'REMOVED' });
         expect(diff([lhs], [])).toEqual({ 0: 'REMOVED' });
       });

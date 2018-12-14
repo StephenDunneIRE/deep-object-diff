@@ -64,15 +64,15 @@ describe('.arrayDiff', () => {
       });
 
       test('returns subset of right hand side value when a key value has been deleted', () => {
-        expect(diff({ a: { b: 1 }, c: 2, d: { e: 100 } }, { a: { b: 1 }, c: 2, d: {} })).toEqual({ d: { e: undefined } });
+        expect(diff({ a: { b: 1 }, c: 2, d: { e: 100 } }, { a: { b: 1 }, c: 2, d: {} })).toEqual({ d: { e: 'REMOVED' } });
       });
 
       test('returns subset of right hand side value when a key value has been added', () => {
         expect(diff({ a: 1 }, { a: 1, b: 2 })).toEqual({ b: 2 });
       });
 
-      test('returns keys as undefined when deleted from right hand side', () => {
-        expect(diff({ a: 1, b: { c: 2 }}, { a: 1 })).toEqual({ b: undefined });
+      test('returns keys as \'REMOVED\' when deleted from right hand side', () => {
+        expect(diff({ a: 1, b: { c: 2 }}, { a: 1 })).toEqual({ b: 'REMOVED' });
       });
     });
 
@@ -88,7 +88,7 @@ describe('.arrayDiff', () => {
       });
 
       test('returns subset of right hand side array as object of indices to value when right hand side array has deletions', () => {
-        const expected = [1, 3, undefined];
+        const expected = [1, 3, 'REMOVED'];
         delete expected['0'];
         expect(diff([1, 2, 3], [1, 3])).toEqual(expected);
       });
@@ -115,9 +115,9 @@ describe('.arrayDiff', () => {
         expect(diff([lhs], [rhs])).toEqual([rhs]);
       });
 
-      test('returns undefined when date deleted', () => {
-        expect(diff({ date: lhs }, {})).toEqual({ date: undefined });
-        expect(diff([lhs], [])).toEqual([undefined]);
+      test('returns \'REMOVED\' when date deleted', () => {
+        expect(diff({ date: lhs }, {})).toEqual({ date: 'REMOVED' });
+        expect(diff([lhs], [])).toEqual(['REMOVED']);
       });
 
       test('returns right hand side when date is added', () => {
@@ -169,7 +169,7 @@ describe('.arrayDiff', () => {
         lhs.c = 2;
         const rhs = Object.create(null);
         rhs.a = { b: 1 };
-        expect(diff(lhs, rhs)).toEqual({ c: undefined });
+        expect(diff(lhs, rhs)).toEqual({ c: 'REMOVED' });
       });
 
       test('returns subset of right hand side value when a key value has been added', () => {

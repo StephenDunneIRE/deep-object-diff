@@ -19,7 +19,7 @@ describe('.preserveArray', () => {
             1: 'bob'
           }
         },
-        3: undefined
+        3: 'REMOVED'
       }
     };
     const expected = {
@@ -39,7 +39,7 @@ describe('.preserveArray', () => {
           c: 'hello',
           d: ['empty', 'bob']
         },
-        undefined
+        'REMOVED'
       ]
     };
     delete expected.a[0].b[0];

@@ -14,8 +14,8 @@ const deletedDiff = (lhs, rhs) => {
 
       return { ...acc, [key]: difference };
     }
-
-    return { ...acc, [key]: undefined };
+    //Returning 'REMOVED' string instead of undefined so that Mongo registers the key-value.
+    return { ...acc, [key]: 'REMOVED' };
   }, {});
 };
 
