@@ -16,6 +16,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A small library that can deep diff two JavaScript Objects, including nested structures of arrays and objects.
+This library is a slight mod of Matt Phillips' deep-object-diff package, the only difference being that it will return a 'REMOVED' string instead of undefined in place where objects have been removed from an updated object's array of objects.
 
 ## Installation
 `yarn add deep-object-diff`
