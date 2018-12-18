@@ -14,6 +14,6 @@ const detailedDiff = function (lhs, rhs) {
   } finally {
     return finalDiff;
   }
-);
+};
 
 export default detailedDiff;
