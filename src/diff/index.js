@@ -2,7 +2,7 @@ import { isDate, isEmpty, isObject, properObject } from '../utils';
 
 const diff = (lhs, rhs) => {
   if (lhs === rhs) return {}; // equal return no diff
-
+  if (lhs.constructor.name == 'ObjectID' && !lhs.equals(rhs)) return rhs; // support for Mongoose ObjectID's
   if (!isObject(lhs) || !isObject(rhs)) return rhs; // return updated rhs
 
   const l = properObject(lhs);

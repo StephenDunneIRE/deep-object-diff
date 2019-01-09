@@ -1,6 +1,6 @@
 {
   "name": "deep-object-diff-mod",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A mod of Matt Phillips' deep-object-diff package: Deep diffs two objects, including nested structures of arrays and objects, and return the difference.",
   "main": "dist/index.js",
   "types": "./index.d.ts",
